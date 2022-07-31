@@ -4,11 +4,10 @@
  * @Author: hxx
  * @Date: 2022-07-27 22:59:37
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-07-27 23:36:14
+ * @LastEditTime: 2022-07-31 16:25:18
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import type { App } from 'vue';
-
 
 const routes: Array<RouteRecordRaw> = [
   {

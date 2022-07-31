@@ -12,16 +12,22 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "paths":{
+    "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
     },
     "baseUrl": ".",
     "allowJs": true,
-
+    "types": [
+      "node",
+      "element-plus/global",
+    ],
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","types/**/*.d.ts",],
-  "exclude": ["node_modules", "dist", "**/*.js"], 
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts", ],
+  "exclude": ["node_modules", "dist", "**/*.js"],
 
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{
+    "path": "./tsconfig.node.json"
+  }]
 }
