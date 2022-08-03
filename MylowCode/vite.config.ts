@@ -4,12 +4,13 @@
  * @Author: hxx
  * @Date: 2022-07-26 23:30:47
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-07-31 19:21:31
+ * @LastEditTime: 2022-08-01 23:56:24
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from "path"
 import WindiCSS from 'vite-plugin-windicss'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 
 const resolve = (dir: string) => path.join(__dirname, dir)
 
@@ -17,7 +18,8 @@ const resolve = (dir: string) => path.join(__dirname, dir)
 export default defineConfig({
   plugins: [
     vue(),
-    WindiCSS()
+    WindiCSS(),
+    DefineOptions()
   ],
   resolve: {
     alias: {
@@ -39,6 +41,7 @@ export default defineConfig({
 
     postcss: {
       plugins: [
+        
         {
           postcssPlugin: 'internal:charset-removal',
           AtRule: {

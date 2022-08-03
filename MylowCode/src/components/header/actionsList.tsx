@@ -4,7 +4,7 @@
  * @Author: hxx
  * @Date: 2022-07-28 23:42:37
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-07-31 23:25:18
+ * @LastEditTime: 2022-08-03 22:00:54
  */
 
 import {
@@ -12,7 +12,9 @@ import {
   Position,
   Delete,
   Download,
+  DocumentCopy
 } from '@element-plus/icons-vue';
+import { shallowRef } from 'vue'
 
 export const actionsList = () => {
   
@@ -21,6 +23,13 @@ export const actionsList = () => {
     {
       title: '出码',
       icon: Download,
+      onClick: () => {
+        console.log('出码',this)
+      }
+    },
+    {
+      title: '复制',
+      icon: DocumentCopy,
       onClick: () => {
         console.log('出码',this)
       }
@@ -46,5 +55,12 @@ export const actionsList = () => {
         console.log('预览',this)
       }
     },
-  ];
+  ].map( action => {
+    return {
+      ...action,
+      // 解决warn 
+      // https://stackoverflow.com/questions/65716637/vue3-performance-warning-using-ref
+      icon: shallowRef(action.icon)
+    }
+  });
 };

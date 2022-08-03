@@ -4,7 +4,7 @@
  * @Author: hxx
  * @Date: 2022-07-27 23:18:40
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-07-28 23:34:48
+ * @LastEditTime: 2022-08-03 21:48:26
  */
 import { App, Component } from 'vue';
 import 'element-plus/dist/index.css';
@@ -19,6 +19,8 @@ import {
   ElButton,
   ElCol,
   ElRow,
+  ElTabs,
+  ElTabPane,
   ElSpace,
   ElDivider,
   ElCard,
@@ -54,6 +56,8 @@ const components = [
   ElButton,
   ElCol,
   ElRow,
+  ElTabs,
+  ElTabPane,
   ElSpace,
   ElDivider,
   ElCard,
