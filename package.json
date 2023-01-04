@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "pinia": "^2.0.28",
+    "vuedraggable": "^2.24.3"
+  }
+}

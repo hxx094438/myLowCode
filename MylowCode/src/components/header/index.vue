@@ -4,7 +4,7 @@
  * @Author: hxx
  * @Date: 2022-07-28 23:42:37
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-08-03 21:50:16
+ * @LastEditTime: 2022-08-07 16:54:42
 -->
 <template>
   <el-row class="header">
@@ -13,7 +13,7 @@
       <h3 class="font-semibold">MylowCode</h3>
     </el-col>
 
-    <el-col class="flex items-center" justify="flex-start" :span="12">
+    <el-col class="flex items-center" :span="12">
       <template v-for="(action, i) in actions" :key="i">
         <div :class="[`w-1/${actions.length}`]">
           <div class="tool-item flex flex-col items-center">

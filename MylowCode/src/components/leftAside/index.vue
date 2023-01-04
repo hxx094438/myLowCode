@@ -4,7 +4,7 @@
  * @Author: hxx
  * @Date: 2022-08-01 22:42:18
  * @LastEditors: Aidam_Bo
- * @LastEditTime: 2022-08-03 23:21:21
+ * @LastEditTime: 2022-08-07 16:19:58
 -->
 <template>
   <el-tabs tab-position="left" class="left-aside" v-model="activeName">
@@ -18,20 +18,7 @@
           {{ item.label }}
         </div>
       </template>
-      <component :is="item.component" v-bind="$attrs" />
-
-
-
-      <!-- <template #label>
-          <div class="tab-item">
-            <el-icon :size="26">
-              <component :is="tabItem.icon" />
-            </el-icon>
-            {{ tabItem.label }}
-          </div>
-        </template> -->
-
-      <!-- <component :is="tabItem.comp" v-bind="$attrs" /> -->
+      <component :is="item.component"></component>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -42,35 +29,33 @@ import {
   Suitcase,
   DataBoard
 } from '@element-plus/icons-vue';
-import { ref, defineComponent } from "vue"
-import c from "./component/c";
+import { ref, defineComponent, DefineComponent } from "vue"
+import index from "./component";
+import components from './component';
+
+interface AsideComp {
+  label: string;
+  icon: DefineComponent,
+  order: number,
+  component: DefineComponent,
+  name: string
+}
+
 defineOptions({
   name: 'LeftAside',
 });
 
-const activeName = '侧边导航'
-const tabs = [
-  {
-    label: '页面',
-    icon: Tickets,
-    component: c,
-    name: 'page1'
-  },
 
-  {
-    label: '组件库',
-    icon: Suitcase,
-    component: c,
-    name: 'page2'
-  },
-  {
-    label: '数据源',
-    icon: DataBoard,
-    component: c,
-    name: 'page3'
+let tabs: Array<AsideComp> = []
+for (const comp in components) {
+  const { label, icon, name, order } = components[comp]
+  tabs.push({
+    label, icon, name, order, component: components[comp]
+  })
+}
+tabs.sort((a, b) => a.order - b.order)
 
-  },
-]
+const activeName = ref(tabs[0].name);
 
 
 </script>
